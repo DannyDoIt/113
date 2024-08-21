@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Home</h2>
+    <p>Welcome to the home page.</p>
+
+    <section>
+    <h3>About</h3>
+    <p>This is the About section of the home page.</p>
+    </section>
+
+    <section>
+    <h3>Latest Posts</h3>
+    <ul>
+        {% for post in latest_posts %}
+        <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+    </section>
+{% endblock %}

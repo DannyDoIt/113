@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Create New Post{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+    <div style="width: 100%; max-width: 600px; text-align: center;">
+        <h2>Create New Post</h2>
+        <form method="post" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            {% csrf_token %}
+            <div style="width: 100%;">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Create Post</button>
+        </form>
+        <div style="margin-top: 20px;">
+            <a href="{% url 'list' %}">Back to all posts</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

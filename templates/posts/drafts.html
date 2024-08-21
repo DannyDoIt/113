@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Draft Posts{% endblock %}
+
+{% block content %}
+<h2>Draft Posts</h2>
+<ul>
+    {% for post in posts %}
+    <li>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <a href="{% url 'edit' post.pk %}" class="btn btn-secondary">Edit</a>
+        <a href="{% url 'delete' post.pk %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'detail' post.pk %}">Continue reading...</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
